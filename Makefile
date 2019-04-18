@@ -70,20 +70,20 @@ ifndef UNATTENDED_CREATION
 	@echo ""
 	# setup plugins persistent storage
 	@echo ""
-	@echo "mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-plugins"
-	@echo "chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-plugins"
+	@echo "sudo mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-plugins"
+	@echo "sudo chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-plugins"
 	@echo "dokku storage:mount $(APP_NAME) /var/lib/dokku/data/storage/$(APP_NAME)-plugins:/app/wp-content/plugins"
 	@echo ""
 	# setup upload persistent storage
 	@echo ""
-	@echo "mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-uploads"
-	@echo "chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-uploads"
+	@echo "sudo mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-uploads"
+	@echo "sudo chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-uploads"
 	@echo "dokku storage:mount $(APP_NAME) /var/lib/dokku/data/storage/$(APP_NAME)-uploads:/app/wp-content/uploads"
 	@echo ""
 	# setup languages persistent storage
 	@echo ""
-	@echo "mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-languages"
-	@echo "chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-languages"
+	@echo "sudo mkdir -p /var/lib/dokku/data/storage/$(APP_NAME)-languages"
+	@echo "sudo chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-languages"
 	@echo "dokku storage:mount $(APP_NAME) /var/lib/dokku/data/storage/$(APP_NAME)-languages:/app/wp-content/languages"
 	@echo ""
 	# setup themes persistent storage
@@ -93,8 +93,8 @@ ifndef UNATTENDED_CREATION
 	@echo ""
 	# secondly, run the following commands on the server
 	@echo ""
-	@echo "mv /home/$(DOKKU_USER)/$(APP_NAME)-themes /var/lib/dokku/data/storage/"
-	@echo "chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-themes"
+	@echo "sudo mv /home/$(DOKKU_USER)/$(APP_NAME)-themes /var/lib/dokku/data/storage/"
+	@echo "sudo chown 32767:32767 /var/lib/dokku/data/storage/$(APP_NAME)-themes"
 	@echo "dokku storage:mount $(APP_NAME) /var/lib/dokku/data/storage/$(APP_NAME)-themes:/app/wp-content/themes"
 	@echo ""
 	# setup your mysql database and link it to your app

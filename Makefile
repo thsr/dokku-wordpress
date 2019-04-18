@@ -98,11 +98,16 @@ ifndef UNATTENDED_CREATION
 	@echo "dokku storage:mount $(APP_NAME) /var/lib/dokku/data/storage/$(APP_NAME)-themes:/app/wp-content/themes"
 	@echo ""
 	# setup your mysql database and link it to your app
-	# if you're using MariaDB, replace mysql with mariadb
+	# if you're using Mysql
 	@echo ""
 	@echo "export MYSQL_IMAGE_VERSION=\"5.6\""
 	@echo "dokku mysql:create $(APP_NAME)-database"
 	@echo "dokku mysql:link $(APP_NAME)-database $(APP_NAME)"
+	@echo ""
+	# if you're using MariaDB
+	@echo ""
+	@echo "dokku mariadb:create $(APP_NAME)-database"
+	@echo "dokku mariadb:link $(APP_NAME)-database $(APP_NAME)"
 	@echo ""
 	# you will also need to set the proper environment variables for keys and salts
 	# the following were generated using the wordpress salt api: https://api.wordpress.org/secret-key/1.1/salt/
